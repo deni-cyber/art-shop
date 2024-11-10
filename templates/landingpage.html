@@ -3,24 +3,46 @@
 {% block title %}Deni- landing page{% endblock %}
 
 {% block content %}
+<div class="container">
+    <div class="bio_container"> 
+        <div class="bio_image">
+            <p>
+                <img src="{{url_for('static', filename='/images/king.png')}}" style="max-width: 400px; border-radius: 50%;">
+            </p>
+        </div>
+        <div class="bio_text">
+            <p>
+                "Hello, my name is D.K Githinji. I am a professional artist based in Kenya. I work with various mediums ranging from 
+                pencil, charcoal, watercolor but predorminantly working with aclyric. I do portraits as well as landscape painting
+                embracing various styles and techniques, the one mostly seen on my work is a mid abstraction to impressionism. My 
+                passion for art is anmatched and i have commited my desire for great work to do all my pieces."
+            </p>
+        </div>
+    </div>
+</div>
 <h1>Shop</h1>
 <div class="container">
-    <div class="imagelist" style="background:url(/static/images/bg.jpg) repeat;">
+    <div class="imagelist" >
         {% for art in art_list%}
                 <div class="image_container">
                     <div class="image">
                         <img src="{{art[5]}}" alt="{{art[4]}}">
                     </div>
                     <div class="images_text">
-                            <p class="title">{{art[1]}}</p>
-                            <p class="description">{{art[2]}}</p>
-                    </div>
-                    <div>
-                        <div>
-                            <h3>KES {{art[4]}}</h3>
+                        <div class="title">
+                            <p >{{art[1]}}</p>
+                            <p style="font-size: x-small;">{{art[3]}}</p>
                         </div>
-                        <div>
-                            <button>buy</button>
+                        <div class="description">
+                            <p>KES {{art[4]}}</p>
+                        </div>
+                    </div>
+                    <div class="buy_box">
+                        <div class="cart_button">
+                            <button>Add to Cart</button>
+                        </div>
+                        <div class="buy_button">
+                            <button>Buy Now</button>
                         </div>
                     </div>
                 </div>
