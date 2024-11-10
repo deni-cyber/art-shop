@@ -24,7 +24,7 @@ def save(table_name,values):
         elif table_name =='Blogs':
              cur.execute("INSERT INTO Blogs (title,aurther,description) VALUES (?,?,?)",values)
         if table_name=='Art':
-             cur.execute("INSERT INTO Art (name,category,description,art_image_url,art_image_filename) VALUES (?,?,?,?,?)",values)
+             cur.execute("INSERT INTO Art (name,category,description,price,art_image_url,art_image_filename) VALUES (?,?,?,?,?,?)",values)
         dbcon.commit()
         dbcon.close()
 
@@ -47,32 +47,6 @@ def get( table_name):
         rows = cur.fetchall()
         dbcon.close()
         return rows
-
-class Project:
-    def __init__(self, name, client, description, project_image_url, project_image_filename):
-        self.name=name
-        self.client=client
-        self.description=description
-        self.project_image_url=project_image_url
-        self.project_image_filename=project_image_filename
-        self.db_table_name='Projects'
-        db_table_name='Projects'
-
-    def __str__(self) -> str:
-        return self.name
-        
-    def create_db_table():
-         add_db_table('Projects','(ID INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT , client TEXT, description TEXT, project_image_url TEXT, project_image_filename TEXT)')
-    
-    def save_to_db(self):
-        save(self.db_table_name, (self.name,self.client,self.description,self.project_image_url,self.project_image_filename) )
-        
-
-    def remove_from_db(id):
-        delete('Projects', id)
-
-    def get_from_db():
-        return get('Projects')
 
 class Message:
     def __init__(self, name, email,subject, message):
@@ -99,28 +73,6 @@ class Message:
          delete("messages", id)
 
 
-class Testimony:
-    def __init__(self, name, message):
-        self.client_name=name
-        self.client_message=message
-        self.db_table_name='Testimonials'
-
-
-    def __str__(self) -> str:
-        return f"{self.client_message} -{self.client_name}"
-    
-    def create_db_table():
-         add_db_table('Testimonials','(ID INTEGER PRIMARY KEY AUTOINCREMENT, client_name TEXT NOT NULL, client_message TEXT NOT NULL , time_submitted TIMESTAMP DEFAULT CURRENT_TIMESTAMP)')
-
-    def add_to_db(self):
-         save(self.db_table_name,(self.client_name, self.client_message))
-
-    def get_from_db():
-        return get('Testimonials')
-    
-    def delete_message(id):
-         delete("Testimonials", id)
-
 class Blog:
     def __init__(self, title, aurther, description):
         self.title=title
@@ -146,10 +98,11 @@ class Blog:
 
 
 class Art:
-    def __init__(self, name, category, description, art_image_url, art_image_filename):
+    def __init__(self, name, category, description, price, art_image_url, art_image_filename):
         self.name=name
         self.category=category
         self.description=description
+        self.price=price
         self.art_image_url=art_image_url
         self.art_image_filename=art_image_filename
         self.db_table_name='Art'
@@ -159,10 +112,10 @@ class Art:
         return self.name
         
     def create_db_table():
-         add_db_table('Art','(ID INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT , category TEXT, description TEXT, art_image_url TEXT, art_image_filename TEXT)')
+         add_db_table('Art','(ID INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT , category TEXT, description TEXT, price TEXT, art_image_url TEXT, art_image_filename TEXT)')
     
     def save_to_db(self):
-        save(self.db_table_name, (self.name,self.category,self.description,self.art_image_url,self.art_image_filename) )
+        save(self.db_table_name, (self.name,self.category,self.description, self.price, self.art_image_url,self.art_image_filename) )
         
 
     def remove_from_db(id):
@@ -178,9 +131,7 @@ print('tbl deleted')
 dbcon.close()
 '''
 
-Project.create_db_table()
 Message.create_db_table()
-Testimony.create_db_table()
 Blog.create_db_table()
 Art.create_db_table()
 

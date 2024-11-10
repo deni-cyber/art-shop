@@ -22,8 +22,6 @@
             <lu>
                 <li onclick=hideSidebar()><a href="#"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
                 <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="{{ url_for('projects') }}">Projects</a></li>
-                <li><a href="{{ url_for('art')}}">Art and Graphics</a></li>
                 <li><a href="{{ url_for('blog') }}">Blog</a></li>
                 <li><a href="{{ url_for('contacts') }}">Contact</a></li>
                 <li><a href="{{ url_for('about') }}">About</a></li>
@@ -31,13 +29,11 @@
         </nav>
         <nav>
             <div class="logo">
-                <img src="{{url_for('static', filename='/images/dtlogo2.png')}}" id="headerlogo" style="border-radius: 3px;">
+                <img src="{{url_for('static', filename='/images/logo.png')}}" id="headerlogo" >
             </div>
             <lu>
                 
                 <li class="hideonmobile"><a href="{{ url_for('home') }}">Home</a></li>
-                <li class="hideonmobile"><a href="{{ url_for('projects') }}">Projects</a></li>
-                <li class="hideonmobile"><a href="{{ url_for('art')}}">Graphics</a></li>
                 <li class="hideonmobile"><a href="{{ url_for('blog') }}">Blog</a></li>
                 <li class="hideonmobile"><a href="{{ url_for('contacts') }}">Contact</a></li>
                 <li class="hideonmobile"><a href="{{ url_for('about') }}">About</a></li>
@@ -58,8 +54,7 @@
                 <strong>contact</strong>
                 <lu>
                     <li>+2547 9161 0129</li>
-                    <li>@DK_Githinji</li>
-                    <div>denitechnologies@gmain.com</div>
+                    <li>@Deni</li>
                 </lu>
             </div>
 

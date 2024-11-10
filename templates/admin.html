@@ -5,30 +5,6 @@
 {% block content %}
         <h3>Admin Panel</h3>
         <hr/>
-    <!--this part is for forms-->	
-
-    <div class="container2" >
-        <div class="column" style="background-color: darkslategray; padding: 1%;">
-            <h3>add a project</h3>
-
-            <form action = "{{ url_for('add_project') }}" method = "POST" enctype=multipart/form-data>
-                Name<br>
-                <input type = "text" name = "name" /></br>
-                
-                Client<br>
-                <input type = "text" name = "client" /><br>
-                
-                Description<br>
-                <textarea name = "description" ></textarea><br>
-
-                <input type = "file" name = "file" /></br>
-
-                <input type = "submit" value = "submit" /><br>
-            </form>
-        </div>
-       
-    
-
         <div class="column" style="background-color: darkslategray; padding: 1%;">
             <h3>add an Art or a Graphics Project</h3>
             <form action = "{{ url_for('add_art') }}" method = "POST" enctype=multipart/form-data>
@@ -43,7 +19,9 @@
                 </select>
                 Description<br>
                 <textarea name = "description" ></textarea><br>
-
+                Price<br>
+                <input type = "text" name = "price" /></br>
+                
                 <input type = "file" name = "file" /></br>
 
                 <input type = "submit" value = "submit" /><br>
@@ -221,7 +199,7 @@
                     <form action="{{url_for('modify_art')}}" method="POST">   
                     <td><input type="checkbox" name="art", value="{{art[0]}} {{art[5]}}"></td>
                     <td>{{art[0]}}</td>
-                    <td><img src="{{art[4]}}" alt="project image" style="max-width: 50px; height: auto;"><p>{{art[1]}}</p></td>
+                    <td><img src="{{art[5]}}" alt="project image" style="max-width: 50px; height: auto;"><p>{{art[1]}}</p></td>
                     <td>{{art[3]}}</td>
                     <td>{{art[2]}}</td>
                     <td><input type="submit" value="delete" ></td>

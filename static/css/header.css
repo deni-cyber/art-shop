@@ -2,8 +2,9 @@ nav{
   width: 100%;
   list-style: none;
   display: flex;
-  background-color:black;
+  background-color:  rgb(1, 32, 32);;
   justify-content: space-between;
+  border-bottom: solid 1px rgb(1, 99, 99);
 }
 nav ul{
   display: flexbox;
@@ -29,7 +30,7 @@ nav  a:hover{
 }
 
 .active{
-  border: aqua solid 1px;
+  border: #ffde59 solid 1px;
   border-top: none;
   border-bottom: none;
   background-color: rgb(1, 32, 32);;
@@ -67,8 +68,8 @@ nav li:first-child{
 }
 
 .logo img{
-  width: 50px;
-  height: auto;
+  width: 250px;
+  height: 100%;
 }
 
 @media(max-width:1100px){
