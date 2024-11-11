@@ -103,12 +103,13 @@ def modify_art():
         art = request.form.get('art')
 
         if not art:
-            flash('No project has been selected')
+            flash('No Art has been selected')
             return redirect(url_for('admin'))
 
         # Split the 'project' value assuming it's formatted as "<project_id> <filename>"
         try:
             art_parts = art.split()
+            print(art_parts)
             if len(art_parts) >= 2:
                 art_id, filename = art_parts[0], art_parts[1]
 
@@ -122,12 +123,13 @@ def modify_art():
 
                 flash('Art deleted successfully')
             else:
-                flash('Invalid project selection format')
+                flash('Invalid Art selection format')
 
         except FileNotFoundError:
             flash(f'File not found: {filename}')
         except Exception as e:
             flash(f'An error occurred: {str(e)}')
+            print(e)
 
         return redirect(url_for('admin'))
 
@@ -173,9 +175,9 @@ def contacts ():
     return render_template('contacts.html')
 
 
-@app.route('/about/')
-def about ():
-    return render_template('about.html')
+@app.route('/cart/')
+def cart ():
+    return render_template('cart.html')
 
 @app.route('/blog/', methods=['post', 'get'])
 def blog():
